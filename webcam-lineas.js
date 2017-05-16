@@ -27,7 +27,7 @@ function setup() {
 
 
 function draw() {
-//color negra con transparencia de 40
+//color negra con transparencia 
 fill(0, 40)
 
 //dibujar un rect llenando el lienzo
