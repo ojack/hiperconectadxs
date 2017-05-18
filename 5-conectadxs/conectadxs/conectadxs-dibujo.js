@@ -1,5 +1,5 @@
-var webcam
-var parche
+//
+var parche;
 
 function setup() {
   
@@ -14,9 +14,6 @@ function setup() {
   //seleccionar un color aleatoriamente
   fill(Math.random()*255, 255, 100, 255)
 
-   //iniciar video desde la camera
-  webcam = createCapture(VIDEO);
-  webcam.size(640, 480)
   
   //acceder el elemento DOM que tiene el lienzo (canvas) de P5
   var canvasStream = document.getElementById("defaultCanvas0").captureStream()
@@ -26,7 +23,7 @@ function setup() {
   //"room" es la nombre de la sala o el canal
   //"stream" es la referencia al video o lienzo para compartir
   parche = new PixelParche({
-    server: "https://192.168.0.111:8000",  
+    server: "https://pixel-parche.glitch.me",  
     room: "hiperconectadxs", 
     peerOptions: {
       stream: canvasStream 
@@ -44,21 +41,17 @@ function draw() {
     background(Math.random()*255, Math.random()*255, Math.random()*255)
   }
 
-  blendMode(BLEND)
  //si el video remoto existe, dibujarla en el lienzo
   if(parche.currMedia !== null){
-   
-    drawingContext.globalAlpha = 1.0
-    drawingContext.drawImage(parche.currMedia, 10, 10, 780, 620);
-    //drawingContext.drawImage(parche.currMedia, 0, 0, width, height);
+    drawingContext.globalAlpha = 0.4
+    //drawingContext.drawImage(parche.currMedia, 10, 10, 780, 620);
+    drawingContext.drawImage(parche.currMedia, 0, 0, width, height);
   }
 
-  blendMode(DIFFERENCE)
 
-   //drawingContext.globalAlpha = 0.6
+   drawingContext.globalAlpha = 1.0
  // drawingContext.globalAlpha = 1.0
-    image(webcam, 0, 0, width, height);
-    rect(mouseX, mouseY, 300, 300);
+  rect(mouseX, mouseY, 30, 30);
 
 }
 

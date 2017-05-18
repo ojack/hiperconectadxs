@@ -47,7 +47,7 @@ var MediaContainer = function(stream, index, id, parent){
     e.target.style.opacity = 0.0
   }
   label.onclick = function(){
-    parent.setSelected(index)
+    parent.setSelected(this.index)
   }.bind(this)
   div.appendChild(vid)
   div.appendChild(label)
@@ -58,7 +58,8 @@ var MediaContainer = function(stream, index, id, parent){
 }
 
 MediaContainer.prototype.setIndex = function(index){
-
+  this.index = index
+  this.label.innerHTML = index
 }
 
 
@@ -168,11 +169,18 @@ var PixelParche = function(options){
 
   var remoteMediaContainer = document.createElement('div');
   remoteMediaContainer.id = "remoteMediaContainer"
-  remoteMediaContainer.style.width = "100%"
-  remoteMediaContainer.style.height = "160px"
+  // remoteMediaContainer.style.width = "100%"
+  // remoteMediaContainer.style.height = "160px"
+  // remoteMediaContainer.style.position = "fixed"
+  // remoteMediaContainer.style.bottom = "0px"
+  // remoteMediaContainer.style.left = "0px"
+  // remoteMediaContainer.style.padding = "0px"
+
+  remoteMediaContainer.style.height = "100%"
+  remoteMediaContainer.style.width = "200px"
   remoteMediaContainer.style.position = "fixed"
-  remoteMediaContainer.style.bottom = "0px"
-  remoteMediaContainer.style.left = "0px"
+  remoteMediaContainer.style.top = "0px"
+  remoteMediaContainer.style.right = "0px"
   remoteMediaContainer.style.padding = "0px"
 
  document.body.appendChild(remoteMediaContainer)

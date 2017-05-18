@@ -16,9 +16,9 @@ function setup() {
     // cuando recibimos datos por el servidor
     function(data) {
       //dibujar un circulo azul
-      fill(0,0,255, 40);
+      fill(0,0,0, 40);
       noStroke();
-      ellipse(data.x,data.y,80,80);
+      ellipse(data.x,data.y,40,80);
     }
   );
 }

@@ -46,7 +46,7 @@ var MediaContainer = function(stream, index, id, parent){
     e.target.style.opacity = 0.0
   }
   label.onclick = function(){
-    parent.setSelected(index)
+    parent.setSelected(this.index)
   }.bind(this)
   div.appendChild(vid)
   div.appendChild(label)
@@ -57,7 +57,8 @@ var MediaContainer = function(stream, index, id, parent){
 }
 
 MediaContainer.prototype.setIndex = function(index){
-
+  this.index = index
+  this.label.innerHTML = index
 }
 
 
